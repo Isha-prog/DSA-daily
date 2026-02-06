@@ -1,0 +1,5 @@
+first="Mohandas"
+middle="Karamchand"
+last="kamlakar"
+# print(first, middle, last)
+print(first+" "+middle+" "+last)
