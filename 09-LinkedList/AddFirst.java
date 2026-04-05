@@ -7,8 +7,13 @@ Node next;
 Node( String data){
 this.data=data;
 this.next=null;
+size++;
 }
     
+}
+private int size;
+AddFirst(){
+    this.size=0;
 }
 Node head=null;
 public void addFirst(String data){
@@ -19,6 +24,7 @@ public void addFirst(String data){
         head=newNode;
         return;
     }
+
     newNode.next=head;
     head=newNode;
 }
@@ -33,6 +39,7 @@ public void addLast(String data){
     while(currentNode.next!=null){
         currentNode=currentNode.next;
     }
+  
     currentNode.next=newNode;
 }
 public void printList(){
@@ -43,11 +50,15 @@ public void printList(){
     }
     System.out.println("null");
 }
+public int getSize(){
+    return size;
+}
     public static void main(String[] args) {
        AddFirst list=new AddFirst();
        list.addFirst("a");
        list.addFirst("is"); 
        list.addLast("girl");
        list.printList();
+       System.out.println(list.getSize());
     }
 }
