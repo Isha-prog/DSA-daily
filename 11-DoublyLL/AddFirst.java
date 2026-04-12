@@ -27,6 +27,19 @@ public class AddFirst {
         }
         System.out.println("null");
     }
+    public void insertAtLast(int data){
+        Node newNode=new Node(data);
+        if(head==null){
+            head=newNode;
+            return;
+        }
+        Node currNode=head;
+        while(currNode.next!=null){
+            currNode=currNode.next;
+        }
+      currNode.next=newNode;
+      newNode.prev=currNode;
+    }
   
     public static void main(String[] args) {
         AddFirst dll = new AddFirst();
@@ -35,6 +48,9 @@ public class AddFirst {
         dll.insertAtFirst(20);
         dll.insertAtFirst(30);
 
+        dll.display();
+        dll.insertAtLast(40);
+        dll.insertAtLast(50);
         dll.display();
     }
 }
