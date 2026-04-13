@@ -1,10 +1,6 @@
 import org.w3c.dom.Node;
 
 public class specificPos {
-   
-    
-
-    // Node class
     static class Node {
         int data;
         Node next;
@@ -15,12 +11,12 @@ public class specificPos {
         }
     }
 
-    // Insert at position
+    
     public static Node insertAtPosition(Node head, int data, int pos) {
 
         Node newNode = new Node(data);
 
-        // Case 1: insert at beginning
+        
         if (pos == 0) {
             newNode.next = head;
             return newNode;
@@ -28,23 +24,43 @@ public class specificPos {
 
         Node temp = head;
 
-        // traverse to (pos-1)
+        
         for (int i = 0; i < pos - 1 && temp != null; i++) {
             temp = temp.next;
         }
 
-        // invalid position
+        
         if (temp == null) {
             System.out.println("Position out of bounds");
             return head;
         }
 
-        // insert node
+        
         newNode.next = temp.next;
         temp.next = newNode;
 
         return head;
     }
+     public static Node deleteAtPosition(Node head, int pos){
+if(head==null){
+    System.out.println("List is empty");
+    return head;
+}
+if(pos==1){
+    head=head.next;
+    return head;
+}
+Node current=head;
+for(int i=0;i<pos-1&&current!=null;i++){
+current=current.next;
+}
+if(current==null||current.next==null){
+    System.out.println("Invalid psotiion");
+}
+current.next=current.next.next;
+return head;
+
+     }
 
     // Print list
     public static void printList(Node head) {
@@ -68,6 +84,9 @@ public class specificPos {
         head = insertAtPosition(head, 25, 2);
 
         System.out.print("After: ");
+        printList(head);
+        head=deleteAtPosition(head,2 );
+        System.out.println("After delete");
         printList(head);
     }
 }
